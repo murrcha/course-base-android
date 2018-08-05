@@ -4,4 +4,19 @@
     <string name="buttonBack">Назад</string>
     <string name="buttonNext">Вперед</string>
     <string name="demoText">Ответ</string>
+    <string name="address">Адрес</string>
+    <string name="name_object">Имя объекта</string>
+    <string name="name_customer">ФИО заказчика</string>
+    <string name="date_testing">Дата проведения испытания</string>
+    <string name="temperature">Температура воздуха</string>
+    <string name="humidity">Влажность воздуха</string>
+    <string name="pressure">Атмосферное давление</string>
+    <string name="number_report">Номер отчета</string>
+    <string name="city">Город</string>
+    <string name="street_home">Улица и дом</string>
+    <string name="domain">Выберите область</string>
+    <string-array name="array_domain">
+        <item>Московская</item>
+        <item>Санкт-Петербург</item>
+    </string-array>
 </resources>
