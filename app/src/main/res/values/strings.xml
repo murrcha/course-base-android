@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Job4j Exam</string>
+    <string name="hello">Hello People</string>
+    <string name="buttonBack">Назад</string>
+    <string name="buttonNext">Вперед</string>
+    <string name="demoText">Ответ</string>
 </resources>
