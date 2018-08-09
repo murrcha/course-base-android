@@ -8,38 +8,36 @@
     tools:context=".ExamActivity">
 
     <TextView
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
 
     <RadioGroup
+        android:id="@+id/variants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RadioButton
-            android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/demoText"
             tools:text="answer1" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/demoText"
             tools:text="answer2" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/demoText"
             tools:text="answer3" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/demoText"
@@ -53,13 +51,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonBack"
+            android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buttonBack" />
 
         <Button
-            android:id="@+id/buttonNext"
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buttonNext" />
