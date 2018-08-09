@@ -96,12 +96,26 @@
                 android:width="150dp"
                 android:text="@string/date_testing"/>
 
-            <EditText
+            <Spinner
+                android:id="@+id/spinner_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="@string/date_testing"
-                android:inputType="date" />
+                android:entries="@array/dates"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinner_month"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/months"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinner_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/years"
+                android:spinnerMode="dropdown" />
 
         </LinearLayout>
 
