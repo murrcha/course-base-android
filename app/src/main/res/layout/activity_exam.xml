@@ -22,25 +22,25 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/demoText"
+            android:text="@string/demo_text"
             tools:text="answer1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/demoText"
+            android:text="@string/demo_text"
             tools:text="answer2" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/demoText"
+            android:text="@string/demo_text"
             tools:text="answer3" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/demoText"
+            android:text="@string/demo_text"
             tools:text="answer4" />
 
     </RadioGroup>
@@ -54,13 +54,19 @@
             android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/buttonBack" />
+            android:text="@string/back_button" />
+
+        <Button
+            android:id="@+id/hint_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_button"/>
 
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/buttonNext" />
+            android:text="@string/next_button" />
     </LinearLayout>
 
 </LinearLayout>

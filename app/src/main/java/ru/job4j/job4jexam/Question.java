@@ -13,22 +13,23 @@ public class Question {
     /**
      * id question
      */
-    private int mId;
+    @SuppressWarnings("unused")
+    private final int mId;
 
     /**
      * text question
      */
-    private String mText;
+    private final String mText;
 
     /**
      * list options
      */
-    private List<Option> mOptions;
+    private final List<Option> mOptions;
 
     /**
      * answer for question
      */
-    private int mAnswer;
+    private final int mAnswer;
 
     /**
      * init question

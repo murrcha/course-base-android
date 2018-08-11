@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -22,7 +22,7 @@
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:spinnerMode="dialog"
@@ -43,7 +43,7 @@
                 android:text="@string/name_object"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/name_object"
@@ -61,7 +61,7 @@
                 android:text="@string/street_home"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/street_home"
@@ -79,7 +79,7 @@
                 android:text="@string/name_customer"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/name_customer"
@@ -130,7 +130,7 @@
                 android:text="@string/temperature"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/temperature"/>
@@ -147,7 +147,7 @@
                 android:text="@string/humidity"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/humidity"/>
@@ -164,7 +164,7 @@
                 android:text="@string/pressure"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/pressure"/>
@@ -181,7 +181,7 @@
                 android:text="@string/number_report"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="@string/number_report"/>
@@ -195,13 +195,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buttonBack"
+                android:text="@string/back_button"
                 android:layout_weight="1"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buttonNext"
+                android:text="@string/next_button"
                 android:layout_weight="1"/>
         </LinearLayout>
 

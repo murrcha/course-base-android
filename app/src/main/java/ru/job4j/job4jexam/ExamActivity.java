@@ -1,5 +1,6 @@
 package ru.job4j.job4jexam;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class ExamActivity extends AppCompatActivity {
      */
     private Button mPreviousButton;
     private Button mNextButton;
+    private Button mHintButton;
     private TextView mQuestionText;
     private RadioGroup mVariants;
 
@@ -63,7 +65,12 @@ public class ExamActivity extends AppCompatActivity {
     /**
      * List answers of user
      */
-    private List<Integer> mAnswers = new ArrayList<>(mQuestions.size());
+    private final List<Integer> mAnswers = new ArrayList<>(mQuestions.size());
+
+    /**
+     * Count true answers
+     */
+    private int mTrueAnswerCount = 0;
 
     /**
      * Method fillForm fill UI elements
@@ -85,13 +92,17 @@ public class ExamActivity extends AppCompatActivity {
     /**
      * Method showAnswer show in toast user's answer and correct answer
      */
-    private void showAnswer() {
+    private void showAndCheckAnswer() {
         int id = mVariants.getCheckedRadioButtonId();
         Question question = this.mQuestions.get(mPosition);
+        int answer = question.getAnswer();
         Toast.makeText(this,
-                String.format("Your answer is %s, correct is %S", id, question.getAnswer()),
+                String.format("Your answer is %s, correct is %s", id, answer),
                 Toast.LENGTH_SHORT
         ).show();
+        if (id == answer) {
+            mTrueAnswerCount++;
+        }
     }
 
     /**
@@ -119,24 +130,29 @@ public class ExamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exam);
         mPreviousButton = findViewById(R.id.previous);
         mNextButton = findViewById(R.id.next);
+        mHintButton = findViewById(R.id.hint_button);
         mQuestionText = findViewById(R.id.question);
         mVariants = findViewById(R.id.variants);
         mVariants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (mPosition != mQuestions.size() - 1) {
-                    mNextButton.setEnabled(true);
-                }
+                mNextButton.setEnabled(true);
             }
         });
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAnswer();
+                showAndCheckAnswer();
                 saveAnswer();
                 mPosition++;
-                fillForm();
-
+                if (mPosition == mQuestions.size()) {
+                    Intent intent = ResultActivity.newIntent(ExamActivity.this, mTrueAnswerCount);
+                    startActivity(intent);
+                    mPosition--;
+                    mTrueAnswerCount = 0;
+                } else {
+                    fillForm();
+                }
             }
         });
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +161,15 @@ public class ExamActivity extends AppCompatActivity {
                 mPosition--;
                 fillForm();
                 restoreAnswer();
+            }
+        });
+        mHintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int answer = mQuestions.get(mPosition).getAnswer();
+                String question = mQuestions.get(mPosition).getText();
+                Intent intent = HintActivity.newIntent(ExamActivity.this, question, answer);
+                startActivity(intent);
             }
         });
         fillForm();

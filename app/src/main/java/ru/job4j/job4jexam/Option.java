@@ -11,12 +11,12 @@ public class Option {
     /**
      * id option
      */
-    private int mId;
+    private final int mId;
 
     /**
      * text option
      */
-    private String mText;
+    private final String mText;
 
     /**
      * init option
