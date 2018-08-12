@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import ru.job4j.job4jexam.pojo.Option;
+import ru.job4j.job4jexam.pojo.Question;
+
 /**
  * ExamActivity
  *
@@ -28,6 +31,7 @@ public class ExamActivity extends AppCompatActivity {
     private Button mPreviousButton;
     private Button mNextButton;
     private Button mHintButton;
+    private Button mBackToList;
     private TextView mQuestionText;
     private RadioGroup mVariants;
 
@@ -131,6 +135,7 @@ public class ExamActivity extends AppCompatActivity {
         mPreviousButton = findViewById(R.id.previous);
         mNextButton = findViewById(R.id.next);
         mHintButton = findViewById(R.id.hint_button);
+        mBackToList = findViewById(R.id.exams_list_button);
         mQuestionText = findViewById(R.id.question);
         mVariants = findViewById(R.id.variants);
         mVariants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -170,6 +175,12 @@ public class ExamActivity extends AppCompatActivity {
                 String question = mQuestions.get(mPosition).getText();
                 Intent intent = HintActivity.newIntent(ExamActivity.this, question, answer);
                 startActivity(intent);
+            }
+        });
+        mBackToList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
         fillForm();

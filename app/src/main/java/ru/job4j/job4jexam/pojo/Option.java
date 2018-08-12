@@ -1,4 +1,4 @@
-package ru.job4j.job4jexam;
+package ru.job4j.job4jexam.pojo;
 
 /**
  * Option

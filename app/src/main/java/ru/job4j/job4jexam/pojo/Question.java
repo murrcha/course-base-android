@@ -1,6 +1,8 @@
-package ru.job4j.job4jexam;
+package ru.job4j.job4jexam.pojo;
 
 import java.util.List;
+
+import ru.job4j.job4jexam.pojo.Option;
 
 /**
  * Question
