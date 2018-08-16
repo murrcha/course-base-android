@@ -25,9 +25,9 @@ public class HintActivity extends AppCompatActivity {
     /**
      * UI elements
      */
-    private TextView mQuestionText;
-    private TextView mAnswerText;
-    private Button mBackButton;
+    private TextView questionText;
+    private TextView answerText;
+    private Button backButton;
 
     /**
      * Method getDataFromIntent get question and answer from intent
@@ -37,9 +37,9 @@ public class HintActivity extends AppCompatActivity {
         String question = intent.getStringExtra(EXTRA_QUESTION);
         int answer = intent.getIntExtra(EXTRA_ANSWER, 0);
         if (question != null) {
-            mQuestionText.setText(question);
+            questionText.setText(question);
         }
-        mAnswerText.setText(String.valueOf(answer));
+        answerText.setText(String.valueOf(answer));
     }
 
     /**
@@ -63,11 +63,11 @@ public class HintActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hint);
-        mQuestionText = findViewById(R.id.question_text);
-        mAnswerText = findViewById(R.id.answer_text);
-        mBackButton = findViewById(R.id.back_button);
+        questionText = findViewById(R.id.question_text);
+        answerText = findViewById(R.id.answer_text);
+        backButton = findViewById(R.id.back_button);
         getDataFromIntent();
-        mBackButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

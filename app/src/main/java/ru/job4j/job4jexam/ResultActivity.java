@@ -22,7 +22,7 @@ public class ResultActivity extends AppCompatActivity {
     /**
      * UI element
      */
-    private TextView mResultText;
+    private TextView resultText;
 
     /**
      * Method getDataFromIntent get true answer count from intent
@@ -30,7 +30,7 @@ public class ResultActivity extends AppCompatActivity {
     private void getDataFromIntent() {
         Intent intent = getIntent();
         int trueAnswerCount = intent.getIntExtra(EXTRA_TRUE_ANSWER_COUNT, 0);
-        mResultText.setText(String.format("True answer count: %s из 3", trueAnswerCount));
+        resultText.setText(String.format("True answer count: %s из 3", trueAnswerCount));
     }
 
     /**
@@ -52,7 +52,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        mResultText = findViewById(R.id.result_text);
+        resultText = findViewById(R.id.result_text);
         getDataFromIntent();
     }
 }

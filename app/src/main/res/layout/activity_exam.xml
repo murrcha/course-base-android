@@ -73,6 +73,6 @@
         android:id="@+id/exams_list_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Список экзаменов"/>
+        android:text="@string/list_exams_button"/>
 
 </LinearLayout>

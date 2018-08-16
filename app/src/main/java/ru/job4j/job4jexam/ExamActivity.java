@@ -28,17 +28,17 @@ public class ExamActivity extends AppCompatActivity {
     /**
      * UI elements
      */
-    private Button mPreviousButton;
-    private Button mNextButton;
-    private Button mHintButton;
-    private Button mBackToList;
-    private TextView mQuestionText;
-    private RadioGroup mVariants;
+    private Button previousButton;
+    private Button nextButton;
+    private Button hintButton;
+    private Button backToList;
+    private TextView questionText;
+    private RadioGroup variantsGroup;
 
     /**
      * List questions
      */
-    private final List<Question> mQuestions = Arrays.asList(
+    private final List<Question> questions = Arrays.asList(
             new Question(1, "How many primitive variables does Java have?",
                     Arrays.asList(
                       new Option(1, "1.1"), new Option(2, "1.2"),
@@ -64,48 +64,48 @@ public class ExamActivity extends AppCompatActivity {
     /**
      * Current position at list questions
      */
-    private int mPosition = 0;
+    private int position = 0;
 
     /**
      * List answers of user
      */
-    private final List<Integer> mAnswers = new ArrayList<>(mQuestions.size());
+    private final List<Integer> answers = new ArrayList<>(questions.size());
 
     /**
      * Count true answers
      */
-    private int mTrueAnswerCount = 0;
+    private int trueAnswerCount = 0;
 
     /**
      * Method fillForm fill UI elements
      */
     private void fillForm() {
-        Question question = this.mQuestions.get(this.mPosition);
-        mQuestionText.setText(question.getText());
-        for (int index = 0; index != mVariants.getChildCount(); index++) {
-            RadioButton radioButton = (RadioButton) mVariants.getChildAt(index);
+        Question question = this.questions.get(this.position);
+        questionText.setText(question.getText());
+        for (int index = 0; index != variantsGroup.getChildCount(); index++) {
+            RadioButton radioButton = (RadioButton) variantsGroup.getChildAt(index);
             Option option = question.getOptions().get(index);
             radioButton.setId(option.getId());
             radioButton.setText(option.getText());
         }
-        mVariants.clearCheck();
-        mPreviousButton.setEnabled(mPosition != 0);
-        mNextButton.setEnabled(false);
+        variantsGroup.clearCheck();
+        previousButton.setEnabled(position != 0);
+        nextButton.setEnabled(false);
     }
 
     /**
      * Method showAnswer show in toast user's answer and correct answer
      */
     private void showAndCheckAnswer() {
-        int id = mVariants.getCheckedRadioButtonId();
-        Question question = this.mQuestions.get(mPosition);
+        int id = variantsGroup.getCheckedRadioButtonId();
+        Question question = this.questions.get(position);
         int answer = question.getAnswer();
         Toast.makeText(this,
                 String.format("Your answer is %s, correct is %s", id, answer),
                 Toast.LENGTH_SHORT
         ).show();
         if (id == answer) {
-            mTrueAnswerCount++;
+            trueAnswerCount++;
         }
     }
 
@@ -113,15 +113,15 @@ public class ExamActivity extends AppCompatActivity {
      * Method saveAnswer save checked answer
      */
     private void saveAnswer() {
-        this.mAnswers.add(mPosition, mVariants.getCheckedRadioButtonId());
+        this.answers.add(position, variantsGroup.getCheckedRadioButtonId());
     }
 
     /**
      * Method restoreAnswer if pressed back button
      */
     private void restoreAnswer() {
-        if (!mAnswers.isEmpty()) {
-            mVariants.check(mAnswers.get(mPosition));
+        if (!answers.isEmpty()) {
+            variantsGroup.check(answers.get(position));
         }
     }
 
@@ -132,52 +132,52 @@ public class ExamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
-        mPreviousButton = findViewById(R.id.previous);
-        mNextButton = findViewById(R.id.next);
-        mHintButton = findViewById(R.id.hint_button);
-        mBackToList = findViewById(R.id.exams_list_button);
-        mQuestionText = findViewById(R.id.question);
-        mVariants = findViewById(R.id.variants);
-        mVariants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        previousButton = findViewById(R.id.previous);
+        nextButton = findViewById(R.id.next);
+        hintButton = findViewById(R.id.hint_button);
+        backToList = findViewById(R.id.exams_list_button);
+        questionText = findViewById(R.id.question);
+        variantsGroup = findViewById(R.id.variants);
+        variantsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                mNextButton.setEnabled(true);
+                nextButton.setEnabled(true);
             }
         });
-        mNextButton.setOnClickListener(new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showAndCheckAnswer();
                 saveAnswer();
-                mPosition++;
-                if (mPosition == mQuestions.size()) {
-                    Intent intent = ResultActivity.newIntent(ExamActivity.this, mTrueAnswerCount);
+                position++;
+                if (position == questions.size()) {
+                    Intent intent = ResultActivity.newIntent(ExamActivity.this, trueAnswerCount);
                     startActivity(intent);
-                    mPosition--;
-                    mTrueAnswerCount = 0;
+                    position--;
+                    trueAnswerCount = 0;
                 } else {
                     fillForm();
                 }
             }
         });
-        mPreviousButton.setOnClickListener(new View.OnClickListener() {
+        previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPosition--;
+                position--;
                 fillForm();
                 restoreAnswer();
             }
         });
-        mHintButton.setOnClickListener(new View.OnClickListener() {
+        hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int answer = mQuestions.get(mPosition).getAnswer();
-                String question = mQuestions.get(mPosition).getText();
+                int answer = questions.get(position).getAnswer();
+                String question = questions.get(position).getText();
                 Intent intent = HintActivity.newIntent(ExamActivity.this, question, answer);
                 startActivity(intent);
             }
         });
-        mBackToList.setOnClickListener(new View.OnClickListener() {
+        backToList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

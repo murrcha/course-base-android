@@ -2,8 +2,6 @@ package ru.job4j.job4jexam.pojo;
 
 import java.util.List;
 
-import ru.job4j.job4jexam.pojo.Option;
-
 /**
  * Question
  *
@@ -16,31 +14,31 @@ public class Question {
      * id question
      */
     @SuppressWarnings("unused")
-    private final int mId;
+    private final int id;
 
     /**
      * text question
      */
-    private final String mText;
+    private final String text;
 
     /**
      * list options
      */
-    private final List<Option> mOptions;
+    private final List<Option> options;
 
     /**
      * answer for question
      */
-    private final int mAnswer;
+    private final int answer;
 
     /**
      * init question
      */
     public Question(int id, String text, List<Option> options, int answer) {
-        this.mId = id;
-        this.mText = text;
-        this.mOptions = options;
-        this.mAnswer = answer;
+        this.id = id;
+        this.text = text;
+        this.options = options;
+        this.answer = answer;
     }
 
     /**
@@ -48,7 +46,7 @@ public class Question {
      * @return text
      */
     public String getText() {
-        return this.mText;
+        return this.text;
     }
 
     /**
@@ -56,7 +54,7 @@ public class Question {
      * @return options
      */
     public List<Option> getOptions() {
-        return mOptions;
+        return options;
     }
 
     /**
@@ -64,6 +62,6 @@ public class Question {
      * @return answer
      */
     public int getAnswer() {
-        return mAnswer;
+        return answer;
     }
 }

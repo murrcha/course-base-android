@@ -4,6 +4,7 @@
     <string name="back_button">Назад</string>
     <string name="next_button">Вперед</string>
     <string name="hint_button">Подсказка</string>
+    <string name="list_exams_button">Список экзаменов</string>
     <string name="your_result">Your result</string>
     <string name="demo_text">Ответ</string>
     <string name="address">Адрес</string>

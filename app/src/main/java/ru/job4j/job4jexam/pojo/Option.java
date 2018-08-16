@@ -11,19 +11,19 @@ public class Option {
     /**
      * id option
      */
-    private final int mId;
+    private final int id;
 
     /**
      * text option
      */
-    private final String mText;
+    private final String text;
 
     /**
      * init option
      */
     public Option(int id, String text) {
-        this.mId = id;
-        this.mText = text;
+        this.id = id;
+        this.text = text;
     }
 
     /**
@@ -31,7 +31,7 @@ public class Option {
      * @return id
      */
     public int getId() {
-        return mId;
+        return id;
     }
 
     /**
@@ -39,6 +39,6 @@ public class Option {
      * @return text
      */
     public String getText() {
-        return mText;
+        return text;
     }
 }

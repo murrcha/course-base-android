@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:textAlignment="center"
-        tools:text="id"/>
+        tools:text="id" />
 
     <TextView
         android:id="@+id/info_text"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAlignment="center"
-        tools:text = "info"/>
+        tools:text="info" />
 
     <TextView
         android:id="@+id/result_text"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAlignment="center"
-        tools:text="result"/>
+        tools:text="result" />
 
     <TextView
         android:id="@+id/date_text"
@@ -36,6 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAlignment="center"
-        tools:text="date"/>
+        tools:text="date" />
 
 </LinearLayout>

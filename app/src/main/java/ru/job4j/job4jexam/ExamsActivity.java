@@ -22,24 +22,24 @@ public class ExamsActivity extends AppCompatActivity {
 
     private static final String DATE_FORMAT = "dd.MM.yyyy HH:mm";
 
-    private RecyclerView mRecycler;
-    private ExamAdapter mAdapter;
+    private RecyclerView recycler;
+    private ExamAdapter adapter;
 
     private void updateUI() {
         List<Exam> exams = new ArrayList<>();
         for (int index = 0; index <= 100; index++) {
             exams.add(new Exam(index, String.format("Exam %s", index), System.currentTimeMillis(), index));
         }
-        mAdapter = new ExamAdapter(exams);
-        this.mRecycler.setAdapter(mAdapter);
+        adapter = new ExamAdapter(exams);
+        this.recycler.setAdapter(adapter);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exams);
-        mRecycler = findViewById(R.id.exams_recycler);
-        mRecycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler = findViewById(R.id.exams_recycler);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
         updateUI();
     }
 
@@ -71,34 +71,34 @@ public class ExamsActivity extends AppCompatActivity {
 
     private class ExamListHolder extends RecyclerView.ViewHolder {
 
-        private TextView mIdText;
-        private TextView mInfoText;
-        private TextView mResultText;
-        private TextView mDateText;
-        private Exam mExam;
+        private TextView idText;
+        private TextView infoText;
+        private TextView resultText;
+        private TextView dateText;
+        private Exam exam;
 
         public ExamListHolder(View itemView) {
             super(itemView);
-            mIdText = itemView.findViewById(R.id.id_text);
-            mInfoText = itemView.findViewById(R.id.info_text);
-            mResultText = itemView.findViewById(R.id.result_text);
-            mDateText = itemView.findViewById(R.id.date_text);
+            idText = itemView.findViewById(R.id.id_text);
+            infoText = itemView.findViewById(R.id.info_text);
+            resultText = itemView.findViewById(R.id.result_text);
+            dateText = itemView.findViewById(R.id.date_text);
         }
 
         public void bind(Exam exam) {
-            this.mExam = exam;
-            mIdText.setText(String.valueOf(mExam.getId()));
-            mInfoText.setText(mExam.getName());
-            mResultText.setText(String.valueOf(mExam.getResult()));
+            this.exam = exam;
+            idText.setText(String.valueOf(this.exam.getId()));
+            infoText.setText(this.exam.getName());
+            resultText.setText(String.valueOf(this.exam.getResult()));
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-            Date date = new Date(mExam.getTime());
-            mDateText.setText(sdf.format(date));
-            mInfoText.setOnClickListener(new View.OnClickListener() {
+            Date date = new Date(this.exam.getTime());
+            dateText.setText(sdf.format(date));
+            infoText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(ExamsActivity.this, ExamActivity.class));
                     Toast.makeText(
-                            getApplicationContext(), "You select " + mExam,
+                            getApplicationContext(), "You select " + ExamListHolder.this.exam,
                             Toast.LENGTH_SHORT
                     ).show();
                 }
