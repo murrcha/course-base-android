@@ -1,4 +1,4 @@
-package ru.job4j.job4jexam.pojo;
+package ru.job4j.exam.pojo;
 
 import java.util.List;
 

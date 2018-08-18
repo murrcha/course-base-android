@@ -1,4 +1,4 @@
-package ru.job4j.job4jexam.adapter;
+package ru.job4j.exam.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -14,9 +14,9 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import ru.job4j.job4jexam.ExamActivity;
-import ru.job4j.job4jexam.R;
-import ru.job4j.job4jexam.pojo.Exam;
+import ru.job4j.exam.ExamActivity;
+import ru.job4j.exam.R;
+import ru.job4j.exam.pojo.Exam;
 
 /**
  * ExamAdapter

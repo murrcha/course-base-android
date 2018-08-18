@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExamsActivity"
+    tools:context="ru.job4j.exam.ExamsActivity"
     android:id="@+id/exams_recycler">
 
 </android.support.v7.widget.RecyclerView>

@@ -6,6 +6,10 @@
     <string name="hint_button">Подсказка</string>
     <string name="list_exams_button">Список экзаменов</string>
     <string name="your_result">Your result</string>
+    <string name="title">Add Exam</string>
+    <string name="name">Имя</string>
+    <string name="name_test">Имя теста</string>
+    <string name="save">Сохранить</string>
     <string name="demo_text">Ответ</string>
     <string name="address">Адрес</string>
     <string name="name_object">Имя объекта</string>

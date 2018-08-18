@@ -1,4 +1,4 @@
-package ru.job4j.job4jexam;
+package ru.job4j.exam;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

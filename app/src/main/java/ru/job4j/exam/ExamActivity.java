@@ -1,4 +1,4 @@
-package ru.job4j.job4jexam;
+package ru.job4j.exam;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import ru.job4j.job4jexam.pojo.Option;
-import ru.job4j.job4jexam.pojo.Question;
+import ru.job4j.exam.pojo.Option;
+import ru.job4j.exam.pojo.Question;
 
 /**
  * ExamActivity
